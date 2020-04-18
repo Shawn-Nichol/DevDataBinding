@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+<!--        Imports: make easy to reference classes inside your layout-->
+        <import type="android.view.View"/>
+<!--        Variables allow you to describe a property that can be used in binding expressions.-->
+<!--        Include lets you reuse complex layouts across your app.-->
+        <variable name = "user" type="com.example.devdatabinding.User"/>
+        <variable name ="list" type="com.example.devdatabinding.MyList"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/firstName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{user.firstName}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{user.lastName}"
+            app:layout_constraintEnd_toEndOf="@+id/firstName"
+            app:layout_constraintStart_toStartOf="@+id/firstName"
+            app:layout_constraintTop_toBottomOf="@+id/firstName" />
+
+
+        <EditText
+            android:id="@+id/example_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lastName" />
+
+
+        <!--Displays example_text as it is entered. -->
+        <TextView
+            android:id="@+id/example_output"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{exampleText.text}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/example_text" />
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/example_list"-->
+<!--            android:text="@{}"/>-->
+
+
+
+        <!--Event Handling-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/example_btn"
+            android:text="Log"/>
+
+
+
+
+    </LinearLayout>
+</layout>
